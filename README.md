@@ -6,7 +6,7 @@ Używamy Python 3.9, ale prawdopodobnie każda wersja powyżej 3.7 zadziała.
 
 ## Repozytorium
 
-1. Proszę pobrać zawartość repozytorium.
+1. Proszę pobrać zawartość tego repozytorium.
 2. Proszę otworzyć katalog z zawartością jako nowy projekt w PyCharm/IntelliJ.
 
 ## Przygotowanie środowiska
