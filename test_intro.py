@@ -17,7 +17,8 @@ if __name__ == '__main__':
         sys.exit(1)
 
     try:
-        from langchain.llms import OpenAI
+        from langchain_core.prompts import PromptTemplate
+        from langchain_openai import OpenAI
         print('\U0001F44D langchain zainstalowane')
     except ImportError:
         print('\U0001F44E langchain nie zainstalowane. Zainstaluj pakiety z pliku requirements.txt. Punkt 5 instrukcji w pliku README.md')
@@ -35,6 +36,13 @@ if __name__ == '__main__':
         print('\U0001F44D FlaskCORS zainstalowane')
     except ImportError:
         print('\U0001F44E FlaskCORS nie zainstalowane. Zainstaluj pakiety z pliku requirements.txt. Punkt 5 instrukcji w pliku README.md')
+        sys.exit(1)
+
+    try:
+        import streamlit
+        print('\U0001F44D streamlit zainstalowane')
+    except ImportError:
+        print('\U0001F44E streamlit nie zainstalowane. Zainstaluj pakiety z pliku requirements.txt. Punkt 5 instrukcji w pliku README.md')
         sys.exit(1)
 
     print("\U0001F44D \U0001F44D \U0001F44D DZIAŁA!")
