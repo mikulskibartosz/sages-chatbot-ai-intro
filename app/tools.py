@@ -30,8 +30,6 @@ Age: The age of the passenger at the time of the Titanic's voyage."""
 
 class Tools:
     def __init__(self):
-        self.conn = sqlite3.connect('../titanic.db')
-
         df = pd.read_csv(DATA_SOURCE)
         survivors = df[['PassengerId', 'Survived']]
         tickets = df[['PassengerId', 'Ticket', 'Pclass', 'Fare', 'Cabin', 'Embarked']]
