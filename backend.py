@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from app.ai import AI
 from app.tools import Tools
+from app.db_memory import DbMemory
 
 
 app = Flask(__name__)
@@ -15,10 +16,14 @@ def chat():
     msg = data['message']
     user_id = data['userId']
 
-    ai = AI(tools=[Tools().as_tool()])
+    memory = DbMemory(user_id)
+    ai = AI(external_memory=memory, tools=[Tools().as_tool()])
 
     response = ai(msg)
     history = []
+    for user_message, ai_message in zip(memory.get_user_messages(), memory.get_ai_messages()):
+        history.append({"who": "user", "message": user_message})
+        history.append({"who": "assistant", "message": ai_message})
 
     return jsonify({"message": msg, "response": response, "history": history}), 200
 
