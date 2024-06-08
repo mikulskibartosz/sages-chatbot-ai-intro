@@ -2,6 +2,7 @@ import uuid
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from app.ai import AI
+from app.tools import Tools
 
 
 app = Flask(__name__)
@@ -14,7 +15,7 @@ def chat():
     msg = data['message']
     user_id = data['userId']
 
-    ai = AI(tools=[])
+    ai = AI(tools=[Tools().as_tool()])
 
     response = ai(msg)
     history = []
