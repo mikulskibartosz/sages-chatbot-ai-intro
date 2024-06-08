@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
-from audio.audio import text_to_speech
+from audio.audio import text_to_speech, speech_to_text
+from streamlit_mic_recorder import mic_recorder
 
 
 def get_user_id():
@@ -30,8 +31,17 @@ if "messages" not in st.session_state:
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
+with st.sidebar:
+    wav_audio_data = mic_recorder(
+        start_prompt="Start recording",
+        stop_prompt="Stop recording",
+        just_once=True,
+    )
 
-if prompt := st.chat_input():
+
+if prompt := st.chat_input() or wav_audio_data:
+    if wav_audio_data:
+        prompt = speech_to_text(wav_audio_data)
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     response = ask_ai(prompt, st.session_state.user_id)

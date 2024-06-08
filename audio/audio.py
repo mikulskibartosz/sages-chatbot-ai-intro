@@ -20,3 +20,18 @@ def text_to_speech(text, voice):
         audio_bytes = audio_file.read()
         audio_file.close()
         return audio_bytes
+
+
+def speech_to_text(audio_bytes):
+    client = openai.OpenAI()
+
+    audio_bio = BytesIO(audio_bytes['bytes'])
+    audio_bio.name = 'audio.mp3'
+
+    transcription = client.audio.transcriptions.create(
+        model="whisper-1",
+        file=audio_bio,
+        response_format="text",
+    )
+
+    return transcription
