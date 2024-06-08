@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from audio.audio import text_to_speech
 
 
 def get_user_id():
@@ -36,3 +37,6 @@ if prompt := st.chat_input():
     response = ask_ai(prompt, st.session_state.user_id)
     st.chat_message("assistant").write(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
+
+    audio_bytes = text_to_speech(response, voice="alloy")
+    st.audio(audio_bytes, format='audio/mpeg', autoplay=True)
