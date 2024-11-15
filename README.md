@@ -1,15 +1,25 @@
-# Instalacja
+# Instrukcja
 
-## Python
+W czasie warsztatów będziemy uruchamiać kod lokalnie na własnych komputerach oraz w Jupyter Notebook. Jupyter Notebook może również być zainstalowany lokalnie, ale zadziała również w chmurze (Google Colab, Kaggle, itd.)
 
-Używamy Python 3.9, ale prawdopodobnie każda wersja powyżej 3.7 zadziała.
+## Dostęp do API OpenAI
 
-## Repozytorium
+Będziemy korzystać z API OpenAI, które wymaga klucza do API oraz opłacenia dostępu. Klucz do API można wygenerować samodzielnie lub skorzystać z dostarczonego przez Sages na początku zajęć.
+
+https://platform.openai.com/settings/organization/api-keys
+
+## Instalacja na komputerze uczestnika
+
+### Python
+
+Używamy Python 3.12, ale prawdopodobnie każda wersja powyżej 3.10 zadziała.
+
+### Repozytorium
 
 1. Proszę pobrać zawartość tego repozytorium.
 2. Proszę otworzyć katalog z zawartością jako nowy projekt w PyCharm/IntelliJ.
 
-## Przygotowanie środowiska
+### Przygotowanie środowiska
 
 0. Otwieramy pobrany katalog jako projekt w PyCharm/IntelliJ.
 
